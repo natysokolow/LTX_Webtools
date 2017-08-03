@@ -1,0 +1,27 @@
+<html>
+<head>
+<link rel="stylesheet" href="static/basic.css" type="text/css">
+</head>
+<body>
+<h1>LTX Plotting Tool</h1>
+<h2>This is just a start. We hope to develop these much further in the near future</h2>
+<form method=post action="">
+	{{ form.csrf_token}}
+<table align=center>
+  {% for field in form %}
+    <tr>
+    <td class="name">{{ field.name }}</td><td>{{ field }}</td>
+    <td>{{ field.label }}</td>
+    </tr>
+  {% endfor %}
+</table>
+<p><input type=submit value=Compute></form></p>
+
+<p>
+{% if result != None %}
+<img src="{{ result }}" width="500" alt="You Didn't Plot Yet">
+{% endif %}
+</p>
+
+</body>
+<html>
